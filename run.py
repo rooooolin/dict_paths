@@ -46,9 +46,9 @@ def get_dict_paths(in_dict):
     return [path[1:] for path in paths],leaf_value
 
 if __name__ == '__main__':
-  category={'vertical_door':0,'horizontal_door':0,'window':0,'electrical_door':0,'elevator':0,'unknown':0}
-  state={'half_open':0,'open':0,'close':0,'unknown':0}
-  statistics={'label':
+    category={'vertical_door':0,'horizontal_door':0,'window':0,'electrical_door':0,'elevator':0,'unknown':0}
+    state={'half_open':0,'open':0,'close':0,'unknown':0}
+    statistics={'label':
                     {
                     'precision':
                         {
@@ -109,8 +109,12 @@ if __name__ == '__main__':
                                 'category':category.copy(),
                                 'state':state.copy()
                             }
-
+    
                         }
                     }
                     }
-  print(get_dict_paths(statistics))
+    import time
+    start = time.time()
+    rst = get_dict_paths(statistics)
+    end = time.time()
+    print("time-cost: {:.8f}s".format(end - start))
